@@ -7,18 +7,18 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.59.106:30003/eureka/
+      defaultZone: ${EUREKA-DEFAULT-ZONE:http://localhost:8761/eureka/}
     healthcheck:
       enabled: true
   instance:
     preferIpAddress: false
-#    hostname: 192.168.59.106
+    hostname: ${EUREKA-INSTANCE-HOSTNAME}
 ---
 server:
-  port: 8282
+  port: ${SERVER-PORT:8282}
 --- # Actuator
 management:
   endpoints:
     web:
       exposure:
-        include: ["*"]
+        include: [ "*" ]

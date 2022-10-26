@@ -20,6 +20,13 @@ spec:
         - name: feign-client
           image: arthurstrokov/feign-client:v0.0.0
           imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVER-PORT
+              value: "30001"
+            - name: EUREKA-DEFAULT-ZONE
+              value: "http://192.168.59.100:30003/eureka/"
+            - name: EUREKA-INSTANCE-HOSTNAME
+              value: "192.168.59.100"
           ports:
             - containerPort: 8282
 ---
@@ -34,8 +41,8 @@ spec:
     run: feign-client
   ports:
     - name: feign-client-port
-      port: 8282
+      port: 30001
       protocol: TCP
-      targetPort: 8282
-      nodePort: 30006
+      targetPort: 30001
+      nodePort: 30001
   type: NodePort
