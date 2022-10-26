@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.gmail.arthurstrokov'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 configurations {
     compileOnly {
@@ -45,12 +45,12 @@ tasks.named('test') {
 
 docker {
     springBootApplication {
-        baseImage = 'openjdk:11'
+        baseImage = 'openjdk:17-alpine'
         ports = [8282]
         images = [
                 'arthurstrokov/feign-client:latest',
                 'arthurstrokov/feign-client:v0.0.0'
         ]
-        jvmArgs = ['-Dspring.profiles.active=native', '-Xmx2048m']
+        jvmArgs = ['-Xmx2048m']
     }
 }
