@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @email astrokov@clevertec.ru
  * @created 26.10.2022
  */
-@FeignClient(name = "cloud-configuration-server", url = "http://192.168.59.100:32405/cloud-configuration-server")
+@FeignClient(name = "cloud-configuration-server", url = "http://192.168.59.100:31933/cloud-configuration-server")
 public interface TestFeignClient {
 
     @GetMapping

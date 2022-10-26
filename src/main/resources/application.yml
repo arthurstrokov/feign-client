@@ -12,7 +12,7 @@ eureka:
       enabled: true
   instance:
     preferIpAddress: false
-    hostname: ${EUREKA-INSTANCE-HOSTNAME}
+    hostname: ${EUREKA-INSTANCE-HOSTNAME:localhost}
 ---
 server:
   port: ${SERVER-PORT:8282}
